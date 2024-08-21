@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjpcu01auijef"]
+
+[ext_resource type="Texture2D" uid="uid://dxayygw2vf53" path="res://assets/sprites/world_tileset.png" id="2_nem55"]
+[ext_resource type="Script" path="res://scripts/gate.gd" id="2_pkx3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15vwy"]
+size = Vector2(23.9033, 27.4946)
+
+[node name="Gate" type="Area2D"]
+collision_mask = 2
+script = ExtResource("2_pkx3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nem55")
+region_enabled = true
+region_rect = Rect2(128, 48, 16, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.98023e-07, 0.072229)
+scale = Vector2(0.585693, -0.514446)
+shape = SubResource("RectangleShape2D_15vwy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
